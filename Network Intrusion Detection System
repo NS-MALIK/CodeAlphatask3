@@ -13,7 +13,7 @@ Step 1:
 .install snort on Kali Linux
 .sudo install snort
           or
-You can intal snort from official website👇
+You can intal snort from official website
 https:// www.snort.org
 Step 2:
 .Confirm installation by command 
@@ -51,7 +51,7 @@ Step 6:
 Testing:
 .Test your snort by following command 
 .sudo snort -T -c /etc/snort/snort.conf -i eth0
-congrats🎉 snort testing is validated 👍
+congrats snort testing is validated 
 Step7:
 Monitoring:
 this is last step os our Network Intrusion Detection System 
