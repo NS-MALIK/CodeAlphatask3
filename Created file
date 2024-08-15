@@ -1,0 +1,62 @@
+Network Intrusion Detection System using Snort 
+Requirement:
+.up-to-date virtual box
+.Install Kali Linux(I recommended Debian flavour)
+.up-to-date kali packages 
+Command:
+.sudo apt update && apt upgrade
+Let's start making Intrusion Detection System
+
+Step-by-Step guide
+
+Step 1:
+.install snort on Kali Linux
+.sudo install snort
+          or
+You can intal snort from official website👇
+https:// www.snort.org
+Step 2:
+.Confirm installation by command 
+.sudo snort --version
+Step 3:
+.To see all modules
+.sudo snort -h (it will same as --help)
+all modules like -c -v -e -d etc are shown.
+Step 4:
+Configuration:
+.To configure the snort
+.sudo -c /etc/snort/snort.conf
+for manual Configuration/customized configuration:
+commands:
+.sudo nano /etc/snort/snort.conf
+sonrt.conf file will open)
+Setup variables:
+.ipvar HMOE_NET [IP address range]
+.ipva EXTERNAL_NET $!HOME_NET
+Step 5:
+Configuration of rules:
+.sudo /etc/snort/rules (all rules will be shown)
+Setup rules:
+.sudo mousepad /etc/snort/rules/local.rules
+(writing pad will open to write rules)
+Setup rules:
+alert tcp HOME_NET [IP addressange] (msg:"  ";sid:1000001;)
+.sid i should be unique 
+.this is a basic network Detection rule 
+.you can setup more rules like pass,drop and etc.
+To find Network Interface:
+.sudo ip a
+.sudo ifconfig
+Step 6:
+Testing:
+.Test your snort by following command 
+.sudo snort -T -c /etc/snort/snort.conf -i eth0
+congrats🎉 snort testing is validated 👍
+Step7:
+Monitoring:
+this is last step os our Network Intrusion Detection System 
+.sudo systemctl daemon-reload
+.sudo systemctl enable snort
+.sudo systemctl start snort
+Now network snorting is start. You can configure logs b using commands
+.sudo snort /var/log/log.txt
